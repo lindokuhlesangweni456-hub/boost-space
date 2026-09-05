@@ -29,7 +29,7 @@ import { useApp } from "@/lib/app-store";
 import { summarizeMeeting, type MeetingSummary } from "@/services/aiService";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/meetings")({
+export const Route = createFileRoute("/_authenticated/meetings")({
   head: () => ({
     meta: [
       { title: "Meeting Notes Summarizer | AI Workplace" },

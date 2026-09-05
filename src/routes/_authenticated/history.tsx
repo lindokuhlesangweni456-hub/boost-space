@@ -10,7 +10,7 @@ import { formatWhen, useApp, type HistoryType } from "@/lib/app-store";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/history")({
+export const Route = createFileRoute("/_authenticated/history")({
   head: () => ({
     meta: [
       { title: "Activity History | AI Workplace Productivity Assistant" },

@@ -19,7 +19,7 @@ import { AiDisclaimer } from "@/components/ai/AiStates";
 import { useApp, type ThemeMode } from "@/lib/app-store";
 import type { EmailLength, EmailTone } from "@/services/aiService";
 
-export const Route = createFileRoute("/settings")({
+export const Route = createFileRoute("/_authenticated/settings")({
   head: () => ({
     meta: [
       { title: "Settings | AI Workplace Productivity Assistant" },
