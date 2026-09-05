@@ -10,7 +10,7 @@ import { FormattedText } from "@/components/ai/FormattedText";
 import { useApp } from "@/lib/app-store";
 import { sendChatMessage, type ChatTurn } from "@/services/aiService";
 
-export const Route = createFileRoute("/assistant")({
+export const Route = createFileRoute("/_authenticated/assistant")({
   head: () => ({
     meta: [
       { title: "AI Workplace Assistant | AI Workplace" },
