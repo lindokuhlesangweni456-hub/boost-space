@@ -208,7 +208,10 @@ function Dashboard() {
                       <span className="block truncate text-sm font-medium text-foreground">
                         {item.title}
                       </span>
-                      <span className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+                      <span
+                        suppressHydrationWarning
+                        className="mt-0.5 flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground"
+                      >
                         <Clock className="size-3" aria-hidden />
                         {formatWhen(item.createdAt)}
                         <span aria-hidden>·</span>
