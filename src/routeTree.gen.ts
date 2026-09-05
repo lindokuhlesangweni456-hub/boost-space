@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AssistantRouteImport } from './routes/assistant'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as EmailRouteImport } from './routes/email'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as MeetingsRouteImport } from './routes/meetings'
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const AssistantRoute = AssistantRouteImport.update({
   id: '/assistant',
   path: '/assistant',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EmailRoute = EmailRouteImport.update({
@@ -50,6 +56,7 @@ const SettingsRoute = SettingsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/email': typeof EmailRoute
   '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/email': typeof EmailRoute
   '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/assistant': typeof AssistantRoute
+  '/auth': typeof AuthRoute
   '/email': typeof EmailRoute
   '/history': typeof HistoryRoute
   '/meetings': typeof MeetingsRoute
@@ -75,13 +84,27 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/assistant' | '/email' | '/history' | '/meetings' | '/settings'
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/email'
+    | '/history'
+    | '/meetings'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/assistant' | '/email' | '/history' | '/meetings' | '/settings'
+  to:
+    | '/'
+    | '/assistant'
+    | '/auth'
+    | '/email'
+    | '/history'
+    | '/meetings'
+    | '/settings'
   id:
     | '__root__'
     | '/'
     | '/assistant'
+    | '/auth'
     | '/email'
     | '/history'
     | '/meetings'
@@ -91,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AssistantRoute: typeof AssistantRoute
+  AuthRoute: typeof AuthRoute
   EmailRoute: typeof EmailRoute
   HistoryRoute: typeof HistoryRoute
   MeetingsRoute: typeof MeetingsRoute
@@ -111,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/assistant'
       fullPath: '/assistant'
       preLoaderRoute: typeof AssistantRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/email': {
@@ -147,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AssistantRoute: AssistantRoute,
+  AuthRoute: AuthRoute,
   EmailRoute: EmailRoute,
   HistoryRoute: HistoryRoute,
   MeetingsRoute: MeetingsRoute,

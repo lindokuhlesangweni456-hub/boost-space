@@ -44,7 +44,8 @@ function AuthPage() {
     // Demo sign-in: simulate a request, then enter the workspace.
     await new Promise((r) => setTimeout(r, 900));
     setLoading(false);
-    setProfile({ name: email.split("@")[0].replace(/[._-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()), email, jobTitle: "Professional" });
+    const localPart = email.split("@")[0] ?? "User";
+    setProfile({ name: localPart.replace(/[._-]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()), email, jobTitle: "Professional" });
     toast.success("Signed in successfully");
     navigate({ to: "/" });
   }
