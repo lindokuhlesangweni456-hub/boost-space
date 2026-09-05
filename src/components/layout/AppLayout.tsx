@@ -179,6 +179,9 @@ export function AppLayout({
           </div>
 
           <div className="flex items-center gap-1">
+            <Button asChild variant="outline" size="sm" className="mr-1">
+              <Link to="/auth">Sign in</Link>
+            </Button>
             <Button variant="ghost" size="icon" aria-label="Search" className="hidden sm:inline-flex">
               <Search className="size-4" aria-hidden />
             </Button>
