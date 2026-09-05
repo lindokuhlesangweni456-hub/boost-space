@@ -37,7 +37,7 @@ export const Route = createFileRoute("/settings")({
   component: SettingsPage,
 });
 
-const TONES: EmailTone[] = ["Professional", "Friendly", "Formal", "Persuasive", "Apologetic"];
+const TONES: EmailTone[] = ["Formal", "Professional", "Friendly", "Informal", "Persuasive", "Concise"];
 const LENGTHS: EmailLength[] = ["Short", "Medium", "Detailed"];
 const THEMES: { value: ThemeMode; label: string; icon: typeof Sun }[] = [
   { value: "light", label: "Light", icon: Sun },

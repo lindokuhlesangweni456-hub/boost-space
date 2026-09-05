@@ -112,6 +112,7 @@ function HistoryPage() {
 
         {items.length === 0 ? (
           <EmptyState
+            icon={Clock}
             title="Nothing here yet"
             description="Generate an email, summarize a meeting or chat with the assistant to build your history."
           />
